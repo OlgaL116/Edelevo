@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ворошиловы</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .book-text {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            text-align: justify;
+            font-size: 1.1rem;
+        }
+        /* Старинная буквица для красивого начала текста */
+        .book-text p::first-letter {
+            font-size: 3.5rem;
+            float: left;
+            margin-right: 8px;
+            color: #722F37;
+            font-weight: bold;
+            line-height: 1;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            text-decoration: none;
+            color: #722F37;
+            font-weight: bold;
+            border-bottom: 1px dashed #722F37;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>ФИО</h1>
+        <div class="vignette">⚜ &nbsp; ❧ &nbsp; ⚜</div>
+        <p class="subtitle">"Текст".</p>
+    </header>
+
+    <section>
+        <h2>Переплетеніе исторій</h2>
+        <div class="book-text">
+    
+            <p>Текст </p>
+            <br>
+            
+            <p>Текст</p>
+        </div>
+        
+        <a href="index.html" class="back-link">← Вернуться на главную страницу архива</a>
+    </section>
+
+    <footer>
+        <p>© Семейный Архивъ.</p>
+    </footer>
+</div>
+
+</body>
+</html>

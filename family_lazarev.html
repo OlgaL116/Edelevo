@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Родовое Древо Полежаевых — Семейный Архивъ</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; 
+            background-color: #f5eedc; /* Цвет старой бумаги */
+        }
+
+        .tree-page-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Шапка страницы в архивном стиле */
+        .tree-header {
+            background-color: #3e2723;
+            color: #f4ebd9;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #bcaaa4;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            z-index: 10;
+            box-sizing: border-box;
+        }
+
+        .tree-header h1 {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .btn-back {
+            display: inline-block;
+            padding: 8px 18px;
+            background-color: #f4ebd9;
+            color: #3e2723;
+            text-decoration: none;
+            font-family: 'Lora', Georgia, serif;
+            font-weight: bold;
+            border: 1px solid #bcaaa4;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background-color: #d7ccc8;
+            transform: translateX(-3px);
+        }
+
+        /* Область просмотра во весь экран */
+        .tree-viewer-main {
+            flex: 1;
+            width: 100%;
+            height: calc(100vh - 70px);
+            background-color: #efe5cd;
+            padding: 0; /* Убрали внутренние отступы, чтобы PDF занял 100% пространства */
+            box-sizing: border-box;
+        }
+
+        /* Интеграция PDF-документа */
+        .pdf-embed-container {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tree-page-container">
+        
+        <header class="tree-header">
+            <h1>Родовое Древо Полежаевых</h1>
+            <p>Для просмотра файла двигайте бегунок внизу - вправо/лево, справа - вверх/вниз.</p>
+            <a href="index.html" class="btn-back">← Вернуться въ архивъ</a>
+        </header>
+
+        <main class="tree-viewer-main">
+            
+            <!-- Используем тег iframe: он идеально открывает PDF на весь экран 
+                 и автоматически добавляет системные кнопки "+" и "-" от самого браузера.
+                 Замените путь ниже на ваш исходный PDF файл дерева -->
+            <iframe src="images/Лазаревы.pdf" class="pdf-embed-container">
+                <p>Ваш браузер не поддерживает отображение PDF. 
+                   <a href="images/Лазаревы.pdf" target="_blank" style="color: #3e2723; font-weight: bold;">
+                      Открыть файл в новой вкладке.
+                   </a>
+                </p>
+            </iframe >
+
+        </main>
+        
+    </div>
+
+</body>
+</html>

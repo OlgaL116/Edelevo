@@ -1,0 +1,513 @@
+@import url('https://googleapis.com');
+
+* {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+html {
+ scroll-behavior: smooth;
+}
+body {
+ font-family: 'Lora', Georgia, serif;
+ background-color: #e5d8bf; 
+ background-image: 
+ linear-gradient(rgba(100, 80, 60, 0.03) 1px, transparent 1px),
+ linear-gradient(90deg, rgba(100, 80, 60, 0.03) 1px, transparent 1px),
+ radial-gradient(circle at 20% 20%, rgba(139, 115, 85, 0.2) 0%, transparent 50%),
+ radial-gradient(circle at 80% 80%, rgba(105, 75, 45, 0.15) 0%, transparent 40%),
+ linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.05) 100%);
+ background-size: 12px 12px, 12px 12px, 100% 100%, 100% 100%, 100% 100%;
+ background-attachment: fixed;
+ color: #2b221a;
+ line-height: 1.6;
+ padding: 20px;
+}
+.container {
+ max-width: 1200px;
+ margin: 0 auto;
+ border: 3px double #5a4b3d;
+ padding: 25px;
+ background-color: #fcf8f0;
+ background-image: radial-gradient(rgba(139, 115, 85, 0.04) 1px, transparent 0);
+ background-size: 24px 24px;
+ box-shadow: 0 10px 30px rgba(45, 35, 25, 0.25);
+ position: relative;
+ border-radius: 16px;
+}
+.container::before {
+ content: "";
+ position: absolute;
+ top: 5px; left: 5px; right: 5px; bottom: 5px;
+ border: 1px solid #c2b095;
+ pointer-events: none;
+ border-radius: 12px;
+}
+header {
+ text-align: center;
+ padding: 30px 10px;
+ border-bottom: 3px double #722F37;
+ margin-bottom: 30px;
+}
+header h1 {
+ font-size: 2.8rem;
+ font-weight: 700;
+ color: #722F37;
+ letter-spacing: 1px;
+ margin-bottom: 10px;
+}
+header .subtitle {
+ font-style: italic;
+ color: #5a5043;
+ font-size: 1.05rem;
+ margin: 15px auto 25px auto;
+ max-width: 850px;
+ text-align: justify;
+ text-justify: inter-word;
+}
+.vignette {
+ font-size: 1.4rem;
+ color: #bfa885;
+ margin-bottom: 10px;
+}
+.subtitle {
+ text-align: center;
+ color: #666;
+ margin-bottom: 30px;
+ font-size: 1.1rem;
+}
+.main-photo-wrapper {
+ max-width: 550px;
+ margin: 20px auto 0 auto;
+ padding: 12px;
+ background: #ffffff;
+ border: 1px solid #cfc2ae;
+ box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+ border-radius: 16px;
+ overflow: hidden;
+}
+.main-photo {
+ width: 100%;
+ height: auto;
+ display: block;
+ filter: sepia(0.6) contrast(0.9) brightness(0.95);
+ border: 1px solid #e1d6c5;
+ border-radius: 10px;
+}
+.photo-caption {
+ margin-top: 10px;
+ font-size: 0.85rem;
+ font-style: italic;
+ color: #5a5043;
+ border-top: 1px dashed #dfd4c1;
+ padding-top: 6px;
+ text-align: center;
+}
+nav {
+ display: flex;
+ justify-content: center;
+ gap: 12px;
+ flex-wrap: wrap;
+ margin-bottom: 40px;
+}
+nav a {
+ text-decoration: none;
+ color: #2b251f;
+ padding: 8px 22px;
+ border: 1px solid #bfa885;
+ font-size: 0.95rem;
+ transition: all 0.3s ease;
+ background: #fffbf5;
+ font-weight: 600;
+ border-radius: 25px;
+}
+nav a:hover {
+ background: #722F37;
+ color: #fff;
+ border-color: #722F37;
+ transform: translateY(-1px);
+}
+section {
+ padding: 40px 0;
+}
+section h2 {
+ font-family: 'Lora', Georgia, serif;
+ font-size: 1.7rem;
+ color: #722F37;
+ margin-bottom: 25px;
+ border-bottom: 1px dashed #bfa885;
+ padding-bottom: 5px;
+ text-align: center;
+}
+.history-links {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+ gap: 20px;
+}
+.history-btn {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+ padding: 25px 20px;
+ border: 2px dashed #bfa885;
+ background: #fffbf5;
+ color: #722F37;
+ text-decoration: none;
+ font-size: 1.15rem;
+ font-weight: bold;
+ transition: transform 0.2s, background 0.3s, border-color 0.3s;
+ border-radius: 14px;
+}
+.history-btn span {
+ display: block;
+ font-size: 0.85rem;
+ color: #615649;
+ font-weight: normal;
+ margin-top: 8px;
+ font-style: italic;
+}
+.history-btn:hover {
+ transform: translateY(-3px);
+ background: #fdfaf2;
+ border-color: #722F37;
+}
+
+/* СТИЛИ ДЛЯ РЕЖИМА ССЫЛКИ НА PDF */
+.tree-document-link {
+ text-decoration: none;
+ color: inherit;
+ display: block;
+}
+.tree-container {
+ background: #fffbf5;
+ border: 1px solid #bfa885;
+ padding: 25px;
+ overflow-x: auto;
+ border-radius: 14px;
+ transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.tree-document-link:hover .tree-container {
+ background-color: #fdf7eb;
+ box-shadow: inset 0 0 10px rgba(114, 47, 55, 0.05);
+}
+.tree-visual {
+ display: flex;
+ justify-content: center;
+ gap: 25px;
+ padding: 15px 0;
+ min-width: 600px;
+ flex-wrap: wrap;
+}
+
+/* НОВЫЕ КНОПКИ ФАМИЛИЙ */
+.tree-node-btn {
+ display: block;
+ text-decoration: none;
+ background: #fbf5e9;
+ border: 1px solid #722F37;
+ padding: 15px 25px;
+ text-align: center;
+ box-shadow: 3px 3px 0px #bfa885;
+ border-radius: 10px;
+ transition: all 0.2s ease;
+}
+.tree-node-btn strong {
+ display: block;
+ color: #722F37;
+ font-size: 1.1rem;
+}
+.tree-node-btn span {
+ font-size: 0.85rem;
+ color: #615649;
+}
+.tree-node-btn:hover {
+ background: #722F37;
+ transform: scale(1.05);
+ box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+}
+.tree-node-btn:hover strong,
+.tree-node-btn:hover span {
+ color: #ffffff;
+}
+
+.album-grid, .meetings-grid {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr); 
+ gap: 15px;
+ padding: 10px 0 30px 0;
+}
+.album-card, .meeting-photo-wrapper {
+ background: #ffffff;
+ border-radius: 6px;
+ overflow: hidden;
+ box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+ transition: transform 0.2s ease;
+}
+.album-card:hover, .meeting-photo-wrapper:hover {
+ transform: translateY(-2px);
+}
+.gallery-link {
+ display: block;
+ cursor: zoom-in;
+}
+.gallery-link img {
+ width: 100%;
+ height: 140px; 
+ object-fit: cover;
+ display: block;
+}
+.memories-section {
+ background-color: #fffbf5;
+ border: 1px dashed #bfa885;
+ padding: 30px 20px;
+ border-radius: 14px;
+ margin-bottom: 30px;
+}
+.memories-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+ gap: 20px;
+}
+.memory-card {
+ background: #fcf8f0;
+ border: 1px solid #cfc2ae;
+ border-radius: 10px;
+ overflow: hidden;
+ box-shadow: 0 3px 6px rgba(0,0,0,0.02);
+}
+.memory-content {
+ padding: 20px;
+}
+.memory-text {
+ font-style: italic;
+ color: #5a5043;
+ line-height: 1.5;
+ margin-bottom: 15px;
+}
+.memory-author {
+ margin: 0;
+ font-size: 1rem;
+ color: #722F37;
+}
+.memory-date {
+ font-size: 0.8rem;
+ color: #8c7e6c;
+ display: block;
+ margin-top: 3px;
+}
+.contact-section {
+ background-color: #fffbf5;
+ border: 1px solid #bfa885;
+ padding: 40px 20px;
+ border-radius: 14px;
+}
+.contact-wrapper {
+ max-width: 600px;
+ margin: 0 auto;
+}
+.contact-form {
+ background: #fcf8f0;
+ padding: 30px;
+ border-radius: 10px;
+ border: 1px dashed #cfc2ae;
+}
+.form-group {
+ margin-bottom: 15px;
+}
+.form-group label {
+ display: block;
+ margin-bottom: 6px;
+ font-weight: 600;
+ color: #5a5043;
+ font-size: 0.9rem;
+}
+.form-group input,
+.form-group textarea {
+ width: 100%;
+ padding: 10px 12px;
+ border: 1px solid #bfa885;
+ background: #fff;
+ border-radius: 6px;
+ font-size: 0.95rem;
+ box-sizing: border-box;
+ font-family: inherit;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+ outline: none;
+ border-color: #722F37;
+}
+.submit-btn {
+ background-color: #722F37;
+ color: #fff;
+ border: none;
+ padding: 12px 30px;
+ font-size: 1rem;
+ font-weight: 600;
+ border-radius: 25px;
+ cursor: pointer;
+ width: 100%;
+ transition: background-color 0.2s ease;
+}
+.submit-btn:hover {
+ background-color: #542228;
+}
+footer {
+ text-align: center;
+ padding: 20px 0 0 0;
+ color: #8c7e6c;
+ font-size: 0.9rem;
+}
+
+/* --- ЖЕЛЕЗНЫЕ СТИЛИ ЛАЙТБОКСА --- */
+.lightbox {
+ display: none;
+ position: fixed !important;
+ z-index: 999999 !important;
+ left: 0 !important;
+ top: 0 !important;
+ width: 100% !important;
+ height: 100% !important;
+ background-color: rgba(0, 0, 0, 0.9) !important;
+ justify-content: center !important;
+ align-items: center !important;
+ opacity: 0;
+ transition: opacity 0.3s ease;
+}
+.lightbox.active {
+ opacity: 1 !important;
+}
+.lightbox-content {
+ max-width: 85% !important;
+ max-height: 85% !important;
+ object-fit: contain !important;
+ border: 4px solid #fff;
+ border-radius: 4px;
+ transform: scale(0.95);
+ transition: transform 0.3s ease;
+}
+.lightbox.active .lightbox-content {
+ transform: scale(1) !important;
+}
+.lightbox-close {
+ position: fixed !important;
+ top: 20px !important;
+ right: 30px !important;
+ color: #ffffff !important;
+ font-size: 60px !important;
+ font-family: Arial, sans-serif !important;
+ font-weight: bold !important;
+ cursor: pointer !important;
+ z-index: 1000000 !important;
+ line-height: 0.8 !important;
+ text-shadow: 0 2px 10px rgba(0,0,0,0.8) !important;
+ user-select: none !important;
+ transition: color 0.2s;
+}
+.lightbox-close:hover {
+ color: #ff4a4a !important;
+}
+
+@media (max-width: 900px) {
+ .album-grid, .meetings-grid {
+ grid-template-columns: repeat(2, 1fr);
+ }
+}
+@media (max-width: 600px) {
+ body { padding: 8px; }
+ .container { padding: 12px; }
+ header h1 { font-size: 1.9rem; }
+ nav { gap: 6px; }
+ nav a { padding: 6px 14px; font-size: 0.85rem; }
+ .lightbox-close { top: 15px !important; right: 20px !important; font-size: 45px !important; }
+}
+@media (max-width: 480px) {
+ .album-grid, .meetings-grid { gap: 10px; }
+ .gallery-link img { height: 120px; }
+}
+
+
+/* =========================================================================
+   СТИЛИ ДЛЯ КНОПОК-ФАМИЛИЙ В СПИСКЕ ЖИТЕЛЕЙ
+   ========================================================================= */
+.resident-card-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 8px;
+    background-color: #f4ebd9; /* Цвет старой бумаги в стиле вашего сайта */
+    color: #3e2723;            /* Темно-коричневый текст */
+    border: 1px solid #bcaaa4; /* Аккуратная рамка */
+    font-family: 'Lora', Georgia, serif; /* Архивный шрифт */
+    font-size: 1.1rem;
+    text-decoration: none;     /* Убираем синее подчеркивание ссылки */
+    text-align: center;
+    border-radius: 4px;        /* Легкое скругление углов */
+    transition: all 0.3s ease; /* Плавность анимации */
+    cursor: pointer;
+}
+
+/* Эффект при наведении курсора мыши */
+.resident-card-btn:hover {
+    background-color: #d7ccc8; /* Чуть более темный оттенок при наведении */
+    box-shadow: 0 4px 10px rgba(62, 39, 35, 0.15); /* Мягкая тень */
+    transform: translateY(-2px); /* Кнопка слегка приподнимается */
+}
+
+/* Стили для контейнера-сетки, чтобы кнопки стояли аккуратно */
+.residents-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+
+/* Стили для фотографии с обтеканием слева */
+.floated-photo-left {
+    float: left;           /* Прижимает фото влево и включает обтекание текстом */
+    width: 600px;          /* Задайте нужную ширину фотографии (например, 250px или 300px) */
+    height: auto;          /* Высота подстроится пропорционально */
+    
+    /* Важные отступы: снизу и СПРАВА (чтобы текст отступил от картинки) */
+    margin: 0 20px 15px 0; 
+    
+    /* Стилизация под старину (в стиле вашего сайта) */
+    border: 1px solid #bcaaa4;
+    padding: 5px;          /* Эффект паспарту/рамки */
+    background-color: #fff;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Сброс обтекания (Clearfix) */
+/* Не дает картинке ломать верстку следующих блоков на странице */
+.clearfix {
+    clear: both;
+}
+
+
+/* Контейнер для центрирования всей конструкции (фото + подпись) */
+.centered-photo-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Центрирует и фото, и подпись по горизонтали */
+    justify-content: center;
+    margin: 30px auto;      /* Отступы 30px сверху и снизу, авто-выравнивание по бокам */
+    max-width: 800px;       /* Максимальная ширина всей конструкции */
+    width: 100%;
+}
+
+/* Стили для самой крупной фотографии */
+.large-centered-photo {
+    display: block;
+    width: 100%;            /* Занимает всю ширину контейнера (до 600px) */
+    height: auto;           /* Пропорциональная высота */
+    
+    /* Архивная рамка из стиля вашего сайта */
+    border: 1px solid #bcaaa4;
+    padding: 6px;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
